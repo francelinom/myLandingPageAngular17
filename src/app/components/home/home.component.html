@@ -16,8 +16,13 @@
     </div>
     <p>Acesse a nova doc do <b>Angular 17!</b> Clique <a href="https://angular.dev/">aqui</a> e conheça a nova versão.</p>
   </section>
-  <section class="cta-section">
+  <section class="cta-section" #marcador>
     <app-btn-primary btn-text="Saber mais"  />
+  </section>
+  <section class="pad-70">
+    @defer (on viewport(marcador)) {
+      <app-pokemon-list />
+    }
   </section>
   <app-newsletter-form />
 </main>

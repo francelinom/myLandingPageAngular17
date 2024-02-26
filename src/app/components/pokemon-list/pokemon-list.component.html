@@ -1,0 +1,10 @@
+<div>
+  <img ngSrc="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png" width="150" height="70" alt="pokemon">
+  <br>
+  <b>Bulbasaur</b>
+</div>
+
+@for (pokemon of pokemons; track $index) {
+  <app-pokemon-card />
+  <p>{{pokemon.name}}</p>
+}
