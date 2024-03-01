@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, signal } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.scss'
 })
-export class PokemonCardComponent {
+export class PokemonCardComponent implements OnChanges {
 
   @Input()
   pokemon: any;
@@ -16,8 +16,10 @@ export class PokemonCardComponent {
   @Input()
   id!: number;
 
-  getImagePokemon() {
+  urlImagePokemon = signal('');
+
+  ngOnChanges(changes: SimpleChanges): void {
     const numeroFormatado = this.id.toString().padStart(3, '0');
-    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${numeroFormatado}.png`;
+    this.urlImagePokemon.set(`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${numeroFormatado}.png`);
   }
 }
