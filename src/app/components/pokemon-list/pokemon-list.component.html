@@ -1,6 +1,7 @@
 <div class="pokemon-list">
   @for (pokemon of pokemons; let id = $index; track id) {
-    <app-pokemon-card [pokemon]="pokemon" [id]="id + 1"/>
+  <app-pokemon-card [pokemon]="pokemon" [id]="id + 1" />
+  } @empty {
+  <p> >>> Não há pokemons para mostrar <<< </p>
   }
-
 </div>
